@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡¡¡¡Feliz cumple betsaaaa!!!!</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#3e2f1c, #1b1208);
+    font-family: 'Cinzel', serif;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  h2 {
+    color: aqua;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+
+  .sobre {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    background: linear-gradient(145deg, #f3ab25, #c9a25f);
+    border: 3px solid #8b6a2b;
+    border-radius: 4px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .pestana {
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 90px solid #a06902;
+    transform-origin: top center;
+    transition: transform 1s ease-in-out;
+    z-index: 6;
+  }
+
+  .sello {
+    position: absolute;
+    top: 60px;
+    left: 130px;
+    width: 40px;
+    height: 40px;
+    background: #8b0000;
+    border-radius: 50%;
+    border: 3px solid #550000;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    z-index: 7;
+    transition: opacity 0.5s ease;
+  }
+
+  .hoja {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.9);
+    width: 240px;
+    height: 160px;
+    background: #f3e5ab;
+    border: 2px solid #cbb673;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: all 1.2s ease-in-out;
+    z-index: 2;
+  }
+
+  .mensaje {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.05em;
+    color: #3b2a15;
+    text-align: center;
+    width: 85%;
+    opacity: 0;
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+
+  .abierto .pestana { transform: rotateX(180deg); }
+  .abierto .sello { opacity: 0; }
+
+  .abierto { animation: desaparecerSobre 1s ease-in-out forwards 2.5s; }
+
+  @keyframes desaparecerSobre {
+    to { opacity: 0; transform: scale(0.8); }
+  }
+
+  .salir-hoja {
+    opacity: 1;
+    top: 10%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .expandir-hoja {
+    animation: expandir 2s forwards;
+  }
+
+  @keyframes expandir {
+    0% {
+      width: 240px;
+      height: 160px;
+      left: 50%;
+      top: 10%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      transform: none;
+      border: none;
+      border-radius: 0;
+      z-index: 10;
+    }
+  }
+
+  p.texto-instruccion {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+  }
+
+  #botonSorpresa {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: #a06902;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  #botonSorpresa:hover { background: #d49b20; }
+
+  /* 📱 Ajustes para celulares */
+  @media (max-width: 600px) {
+    h2 { font-size: 1.2em; }
+    .sobre {
+      width: 240px;
+      height: 150px;
+    }
+    .pestana {
+      border-left: 120px solid transparent;
+      border-right: 120px solid transparent;
+      border-bottom: 70px solid #a06902;
+      top: -70px;
+    }
+    .sello {
+      top: 50px;
+      left: 100px;
+      width: 35px;
+      height: 35px;
+    }
+    .hoja {
+      width: 210px;
+      height: 140px;
+    }
+    .mensaje {
+      font-size: 0.9em;
+      width: 90%;
+    }
+    p.texto-instruccion {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    #botonSorpresa {
+      bottom: 20px;
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h2>🥳🤗Feliz cumple Betsita🤗🥳</h2>
+
+<div class="sobre" id="sobre">
+  <div class="pestana"></div>
+  <div class="sello"></div>
+</div>
+
+<div class="hoja" id="hoja">
+  <div class="mensaje" id="mensaje"></div>
+  <button id="botonSorpresa" onclick="window.location.href='Regalo_A.html'">Ver tu sorpresa 🎁</button>
+</div>
+
+<p class="texto-instruccion">Toca el sello para abrir tu regalo 🎁</p>
+
+<script>
+const sobre = document.getElementById("sobre");
+const hoja = document.getElementById("hoja");
+const mensaje = document.getElementById("mensaje");
+const boton = document.getElementById("botonSorpresa");
+
+const texto = `¡Feliz cumpleaños, Ashley Betsabét! 🎉
+
+En este día tan especial quiero felicitarte. Hoy cumples 20 años, y quiero que sepas que eres una gran persona: siempre positiva, con muy buenos gustos tanto musicales como en videojuegos.
+
+Aunque, si no me equivoco, apenas llevamos unas cinco semanas conociéndonos, me has caído muy bien —no imaginas cuánto.
+
+Mis disculpas por no poder darte un regalo físico, pero prometo hacerlo más adelante. Quiero que sepas que eres una mujer luchadora, siempre estudiando y enfrentando el estrés, pero aun así te muestras positiva. Eres una persona digna de admirar, Betsit.
+
+Espero que en este día tan especial puedas pasarlo estupendamente, compartiendo con tu familia y amigos. ¡Espero que te diviertas muchísimo!
+
+En fin...
+¡¡FELIZ CUMPLE, BETSI!! 🥳🥳🥳`;
+
+const sonidoAbrir = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_0f7c95bde4.mp3?filename=paper-rip-102124.mp3");
+const sonidoPapel = new Audio("https://cdn.pixabay.com/download/audio/2021/08/04/audio_4b4c3651b0.mp3?filename=paper-slide-1-9218.mp3");
+
+sobre.addEventListener("click", () => {
+  sonidoAbrir.play();
+  sobre.classList.add("abierto");
+
+  setTimeout(() => {
+    hoja.classList.add("salir-hoja");
+    sonidoPapel.play();
+  }, 1000);
+
+  setTimeout(() => hoja.classList.add("expandir-hoja"), 2500);
+
+  setTimeout(() => escribirTexto(texto), 4600);
+});
+
+function escribirTexto(texto) {
+  mensaje.style.opacity = 1;
+  let i = 0;
+  const intervalo = setInterval(() => {
+    mensaje.textContent = texto.slice(0, i);
+    i++;
+    if (i > texto.length) {
+      clearInterval(intervalo);
+      setTimeout(() => { boton.style.opacity = 1; }, 800);
+    }
+  }, 40);
+}
+</script>
+</body>
+</html>

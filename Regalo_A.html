@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu sorpresa 🎶</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: url('imagen.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 8px black;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background: #a06902;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #d49b20;
+  }
+</style>
+</head>
+<body>
+  <h1>🎂 ¡Feliz cumpleaños, Betsita! 🎂</h1>
+  <p>Tu amistad y alegría iluminan los días 💖</p>
+
+  <!-- Música -->
+  <audio id="musica" autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // En algunos navegadores, el autoplay no funciona hasta que el usuario interactúa
+    const musica = document.getElementById("musica");
+    musica.play().catch(() => {
+      const boton = document.createElement("button");
+      boton.textContent = "🎵 Reproducir música";
+      document.body.appendChild(boton);
+      boton.onclick = () => {
+        musica.play();
+        boton.remove();
+      };
+    });
+  </script>
+</body>
+</html>
